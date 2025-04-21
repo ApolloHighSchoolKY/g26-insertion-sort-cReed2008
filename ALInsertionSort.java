@@ -9,27 +9,49 @@ public class ALInsertionSort
     	ArrayList<Integer> sorted = new ArrayList<Integer>();
     	boolean inserted=false;
 
-		//Add the first number to the array list
+		 //Add the first number to the array list
+		 sorted.add(myNumbers[0]);
 
-		//Loop once for all of the remaining numbers in the unsorted list
+		 //Loop once for all of the remaining numbers in the unsorted list
+		 for (int i = 1; i < myNumbers.length; i++) 
+		 {
 
-			//Check with each of the numbers in the sorted list
+			   inserted = false;
+ 
+			 //Check with each of the numbers in the sorted list
+			 //If this number is less than one in the sorted list,
+			 //insert it there
+			 for (int x = 0; x < sorted.size(); x++)
+			{
+				 if (myNumbers[i] < sorted.get(x))
+				  {
+					 sorted.add(x, myNumbers[i]);
+					 inserted = true;
+					 break;
+				 }
+			}
+ 
+			 //If it was not inserted, stick it on the end
+			 if (!inserted) {
+				 sorted.add(myNumbers[i]);
+			 }
+			 System.out.println(sorted);
+		 }
+ 
+		 //End loop for unsorted list
+ 
+		 //Move the data back to the array
+		 for (int i = 0; i < sorted.size(); i++) 
+		 {
+			 myNumbers[i] = sorted.get(i);
+		 }
+ 
+		 //Print the contents of the array
+ 
+		 for (int n : myNumbers) 
+		 {
+			 System.out.print(n + " ");
+		 }
 
-				//If this number is less than one in the sorted list,
-				//insert it there
-
-			//If it was not inserted, stick it on the end.
-
-
-		//End Loop for unsorted list
-
-		System.out.println(sorted);
-
-		//Move the data back to the array
-
-		//Print the contents of the array
-
-    }
-
-
+	}
 }
